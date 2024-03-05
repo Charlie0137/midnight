@@ -30,14 +30,14 @@ public class Card {
         suit = Suits.Hearts;
     }
 
-    Card(byte valueIn, Suits suitIn) {
-        value = (valueIn <= 13 && valueIn > 0) ? valueIn : 1; // ensures value is between 1 and 13 (inclusive)
-        suit = suitIn;
+    Card(byte setValue, Suits setSuit) {
+        value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
+        suit = setSuit;
     }
 
-    Card(byte valueIn, char suitIn) {
-        value = (valueIn <= 13 && valueIn > 0) ? valueIn : 1; // ensures value is between 1 and 13 (inclusive)
-        switch (Character.toLowerCase(suitIn)) {
+    Card(byte setValue, char setSuit) {
+        value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
+        switch (Character.toLowerCase(setSuit)) {
             case 'd':
                 suit = Suits.Diamonds;
                 break;
@@ -56,13 +56,12 @@ public class Card {
         }
     }
 
-    Card(byte valueIn, byte suitIn) {
-        value = (valueIn <= 13 && valueIn > 0) ? valueIn : 1; // ensures value is between 1 and 13 (inclusive)
-        suit = Suits.values()[(suitIn < 4 && suitIn >= 0) ? suitIn : 0];
+    Card(byte setValue, byte setSuit) {
+        value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
+        suit = Suits.values()[(setSuit < 4 && setSuit >= 0) ? setSuit : 0];
     }
 
-    // methods
-    // getters
+    // accessors
     byte getValue() {
         return value;
     }
