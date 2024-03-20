@@ -14,14 +14,14 @@ import java.awt.*;
  */
 public class Card {
     // parameters
-    private enum Suits {
+    public enum Suits {
         Hearts,
         Diamonds,
         Spades,
         Clubs
     }
 
-    private byte value;
+    private int value;
     private Suits suit;
 
     // constructor
@@ -30,12 +30,12 @@ public class Card {
         suit = Suits.Hearts;
     }
 
-    Card(byte setValue, Suits setSuit) {
+    Card(int setValue, Suits setSuit) {
         value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
         suit = setSuit;
     }
 
-    Card(byte setValue, char setSuit) {
+    Card(int setValue, char setSuit) {
         value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
         switch (Character.toLowerCase(setSuit)) {
             case 'd':
@@ -56,29 +56,35 @@ public class Card {
         }
     }
 
-    Card(byte setValue, byte setSuit) {
+    Card(int setValue, int setSuit) {
         value = (setValue <= 13 && setValue > 0) ? setValue : 1; // ensures value is between 1 and 13 (inclusive)
         suit = Suits.values()[(setSuit < 4 && setSuit >= 0) ? setSuit : 0];
     }
 
     // accessors
-    byte getValue() {
+    int getValue() {
         return value;
     }
 
     String getValueString() {
         switch (value) {
-            case 1: return "an Ace";
-            case 8: return "an 8";
-            case 11: return "a Jack";
-            case 12: return "a Queen";
-            case 13: return "a King";
-            default: return "a " + value;
+            case 1:
+                return "an Ace";
+            case 8:
+                return "an 8";
+            case 11:
+                return "a Jack";
+            case 12:
+                return "a Queen";
+            case 13:
+                return "a King";
+            default:
+                return "a " + value;
         }
     }
 
-    byte getByteSuit() {
-        return (byte) suit.ordinal();
+    int getIntSuit() {
+        return (int) suit.ordinal();
     }
 
     char getCharSuit() {
