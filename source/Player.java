@@ -13,7 +13,8 @@ public class Player {
 
     // parameters
     private String name;
-    private Card[] clock, queue = new Card[12];
+    private Card[] clock = new Card[12];
+    private Card[] queue = new Card[12];
 
     // constructors
     Player() {
@@ -50,6 +51,7 @@ public class Player {
      * if so, fills the spot and returns true
      * if not, returns false
      */
+    @SuppressWarnings("resource")
     boolean drawCard(Card drawnCard) {
         Scanner userIn = new Scanner(System.in);
 
@@ -87,6 +89,15 @@ public class Player {
         } else {
             queue[drawnCard.getValue() - 1] = drawnCard;
             return true;
+        }
+    }
+
+    public void endTurn() {
+        for (int i = 0; i < queue.length; i++) {
+            if (queue[i] != null && clock[i] == null) {
+                clock[i]  = new Card(queue[i]);
+                queue[i] = null;
+            }
         }
     }
 }

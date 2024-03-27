@@ -6,9 +6,6 @@
  * Created 5 March 2024
  */
 
-import javax.swing.JOptionPane;
-import java.awt.*;
-
 /**
  * card
  */
