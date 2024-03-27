@@ -61,6 +61,11 @@ public class Card {
         suit = Suits.values()[(setSuit < 4 && setSuit >= 0) ? setSuit : 0];
     }
 
+    Card(Card oldCard) {
+        value = oldCard.getValue();
+        suit = oldCard.getSuit();
+    }
+
     // accessors
     int getValue() {
         return value;
@@ -91,8 +96,12 @@ public class Card {
         return suit.name().charAt(0);
     }
 
-    String getSuit() {
+    String getSuitString() {
         return suit.name();
+    }
+
+    Suits getSuit() {
+        return suit;
     }
 
     String getCardString() {

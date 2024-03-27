@@ -41,6 +41,10 @@ public class Player {
 
     // mutators
 
+    public void resetQueue() {
+        queue = new Card[12];
+    }
+
     /*
      * checks if there is an open spot in the queue for the card,
      * if so, fills the spot and returns true

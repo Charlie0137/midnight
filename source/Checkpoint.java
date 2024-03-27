@@ -14,7 +14,8 @@ public class Checkpoint {
 
     public static void main(String[] args) {
 
-        Player player = new Player("Example Player");
+        Player player1 = new Player("Example Player");
+        Player player2 = new Player("Example Player 2");
 
         // populate the deck
         for (Card.Suits i : Card.Suits.values()) {
@@ -25,7 +26,9 @@ public class Checkpoint {
             System.out.println();
         }
 
-        playerTurn(player);
+        playerTurn(player1);
+        System.out.println("\nPlayer 2's Turn");
+        playerTurn(player2);
 
     }
 
@@ -51,8 +54,15 @@ public class Checkpoint {
             if (userDirection.equalsIgnoreCase("draw") || userDirection.equalsIgnoreCase("d")) {
 
                 drawnCard = drawCard();
-                if (!player.drawCard(drawnCard))
+                if (!player.drawCard(drawnCard)) {
+                    for (Card c : player.getQueue()) {
+                        if (c == null)
+                            continue;
+                        deck.add(c);
+                    }
+                    deck.add(drawnCard);
                     break;
+                }
 
             } else if (userDirection.equalsIgnoreCase("stay") || userDirection.equalsIgnoreCase("s"))
                 break;
@@ -60,6 +70,5 @@ public class Checkpoint {
                 continue;
             System.out.println();
         }
-        userTurnScanner.close();
     }
 }
