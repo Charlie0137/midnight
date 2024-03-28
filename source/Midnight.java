@@ -33,10 +33,10 @@ public class Midnight extends JFrame {
         Player player;
 
         public PlayerArea(Player playerIn) {
-            setLayout(new GridLayout(1,3,2,500));
+            setLayout(new GridLayout(1, 3, 2, 500));
 
             player = playerIn;
-            
+
             setBackground(BACKGROUND);
 
             queuePanel.setLayout(new GridLayout(4, 3, 4, 4));
@@ -45,13 +45,13 @@ public class Midnight extends JFrame {
             clockPanel.setLayout(new GridLayout(4, 3, 4, 4));
 
             buttonPanel.setBackground(BACKGROUND);
-            buttonPanel.setLayout(new GridLayout(2,1,50,50));
+            buttonPanel.setLayout(new GridLayout(2, 1, 50, 50));
             buttonPanel.add(draw);
             buttonPanel.add(stay);
 
             draw.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    // player.drawCard(new Card());
+                    player.drawCard(new Card());
                     updateClock();
                     updateQueue();
                     updateUI();
@@ -154,7 +154,7 @@ public class Midnight extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame about = new JFrame();
                 JTextArea info = new JTextArea();
-                info.setText("Midnight\nCreated by Charlie Burrow and William Croteau\nMarch 2024");
+                info.setText("Midnight\nCreated by Charlie Burrow\nMarch 2024");
                 info.setEditable(false);
                 about.add(info);
                 about.setSize(300, 100);
