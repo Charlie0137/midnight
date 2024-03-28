@@ -1,7 +1,0 @@
-/**
- * Bot
- */
-public class Bot {
-
-    
-}
